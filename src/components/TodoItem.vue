@@ -1,8 +1,8 @@
 <template>
     <li>
-        <span :class="{completed: isCompleted}">
-            <input type="checkbox" @change="isCompleted = !isCompleted">
-            {{ index + 1 }}. {{ todo.title }}
+        <span>
+            <button class="done" @click="$emit('change-state', todo.id)">{{ changeButtonName }}</button>
+            <p :class="{ completed: todo.completed }">{{ index + 1 }}. {{ todo.title }}</p>
             <button class="remove" @click="$emit('remove-item', todo.id)">&times;</button>
         </span>
     </li>
@@ -10,29 +10,41 @@
 
 <script>
 export default {
-    data() {
-        return {
-            isCompleted: false
-        }
-    },
     props: {
         todo: {
             type: Object,
             required: true
         },
         index: Number
+    },
+    computed: {
+        changeButtonName() {
+            let buttonName;
+            if (this.todo.completed === true) buttonName = 'Cancel';
+            if (this.todo.completed === false) buttonName = 'Done';
+            return buttonName;
+        }
     }
-    
 }
 </script>
 
 <style scoped>
     li {
-        display: flex;
-        justify-content: space-between;
+        /* display: flex; */
+        /* justify-content: space-between; */
         border: 1px solid black;
         padding: .5rem 2rem;
         margin-bottom: 1rem;
+    }
+    span {
+        display: flex;
+        justify-content: space-between;
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        text-align: justify;
     }
     .remove {
         background: red;
@@ -43,7 +55,7 @@ export default {
     .completed {
         text-decoration: line-through;
     }
-    input {
+    .done {
         margin-right: 1rem;
     }
 </style>

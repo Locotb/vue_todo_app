@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <!-- <div class="container"> -->
         <ul>
             <TodoItem 
                 v-for="(todo, i) of todos"
@@ -7,22 +7,31 @@
                 :index="i"
                 :key="todo.id"
                 @remove-item="removeItem"
+                @change-state="changeState"
             />
         </ul>
-    </div>
+    <!-- </div> -->
 </template>
 
 <script>
 import TodoItem from '@/components/TodoItem.vue';
 
 export default {
-    props: ['todos'],
+    props: {
+        todos: {
+            type: Object,
+            required: true
+        }
+    },
     components: {
         TodoItem
     },
     methods: {
         removeItem(id) {
             this.$emit('remove-item', id);
+        },
+        changeState(id) {
+            this.$emit('change-state', id);
         }
     }
 }
@@ -34,8 +43,8 @@ export default {
         margin: 0;
         padding: 0;
     }
-    .container {
+    /* .container {
         display: flex;
         justify-content: center;
-    }
+    } */
 </style>

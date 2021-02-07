@@ -17,8 +17,9 @@ export default {
             if ( this.title.trim() ) {
                 const newItem = {
                     id: Date.now(),
-                    title: this.title
-                }
+                    title: this.title,
+                    completed: false
+                };
 
                 this.$emit('add-item', newItem);
                 this.title = '';
@@ -35,6 +36,7 @@ export default {
         margin: 1rem;
     }
     input {
+        margin-right: 1rem;
         width: 400px;
     }
 </style>
