@@ -43,20 +43,27 @@ export default {
         AddItem,
         Loader
     },
-    mounted() {
-        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
-        .then(response => response.json())
-        .then(json => {
-            this.todos = json;
-            this.loading = false;
-        });  
+    async mounted() {
+        let jsonRes = await ( await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5') ).json();
+        this.todos = jsonRes;
+        this.loading = false; 
     },
     computed: {
         filterTodos() {
             let val;
-            if (this.filter === 'all') val = this.todos;
-            if (this.filter === 'completed') val = this.todos.filter(todo => todo.completed);
-            if (this.filter === 'not-completed') val = this.todos.filter(todo => !todo.completed);
+            switch (this.filter) {
+                case 'all':
+                    val = this.todos;
+                break;
+
+                case 'completed':
+                    val = this.todos.filter(todo => todo.completed);
+                break;
+            
+                case 'not-completed':
+                    val = this.todos.filter(todo => !todo.completed);
+                break;
+            }
             return val;
         }
     },
@@ -83,5 +90,6 @@ export default {
     .container {
         max-width: 70%;
         margin: 0 auto;
+        overflow: hidden;
     }
 </style>

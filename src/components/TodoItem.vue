@@ -19,10 +19,7 @@ export default {
     },
     computed: {
         changeButtonName() {
-            let buttonName;
-            if (this.todo.completed === true) buttonName = 'Cancel';
-            if (this.todo.completed === false) buttonName = 'Done';
-            return buttonName;
+            return this.todo.completed ? 'Cancel' : 'Done';
         }
     }
 }
@@ -30,8 +27,6 @@ export default {
 
 <style scoped>
     li {
-        /* display: flex; */
-        /* justify-content: space-between; */
         border: 1px solid black;
         padding: .5rem 2rem;
         margin-bottom: 1rem;
@@ -45,12 +40,14 @@ export default {
         padding: 0;
         width: 100%;
         text-align: justify;
+        word-break: break-all;
     }
     .remove {
         background: red;
         border-radius: 50%;
         color: white;
         cursor: pointer;
+        margin-left: 1rem;
     }
     .completed {
         text-decoration: line-through;

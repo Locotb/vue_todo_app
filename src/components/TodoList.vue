@@ -1,5 +1,4 @@
 <template>
-    <!-- <div class="container"> -->
         <ul>
             <TodoItem 
                 v-for="(todo, i) of todos"
@@ -10,7 +9,6 @@
                 @change-state="changeState"
             />
         </ul>
-    <!-- </div> -->
 </template>
 
 <script>
@@ -43,8 +41,4 @@ export default {
         margin: 0;
         padding: 0;
     }
-    /* .container {
-        display: flex;
-        justify-content: center;
-    } */
 </style>

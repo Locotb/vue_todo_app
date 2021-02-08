@@ -53,10 +53,6 @@ p{
   display: inline-block;
   vertical-align: top;
 }
-
-/*
-  Set the color of the icon
-*/
 svg path, svg rect{
   fill: #FF6700;
 }
