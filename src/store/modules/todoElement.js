@@ -1,13 +1,14 @@
 export default {
     actions: {
         async fetchTodos(ctx) {
-            const response = await ( await fetch('https://jsonplaceholder.typicode.com/todos?_limit=5') ).json();
-            ctx.commit('updateTodos', response);
+            const response = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=7');
+            const json = await response.json()
+            ctx.commit('updateTodos', json);
         }
     },
     mutations: {
-        updateTodos(state, response) {
-            response.forEach(item => {
+        updateTodos(state, json) {
+            json.forEach(item => {
                 if (!state.todos.find(todo => todo.id === item.id)) state.todos.push(item);
             });
             state.loading = false;

@@ -41,5 +41,9 @@ export default {
     input {
         margin-right: 1rem;
         width: 400px;
+        outline: none;
+    }
+    button:hover {
+        background-color: #d4e1e1;      
     }
 </style>

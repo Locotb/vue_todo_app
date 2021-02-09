@@ -1,11 +1,11 @@
 <template>
+    <div>
+        <select v-model="filter">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="not-completed">Not completed</option>
+        </select>
         <ul>
-            <select v-model="filter">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="not-completed">Not completed</option>
-            </select>
-
             <TodoItem 
                 v-for="(todo, i) of filterTodos"
                 :todo="todo"
@@ -14,6 +14,7 @@
             />
             <p v-if="!filterTodos.length && !$store.state.todoElement.loading">No todos!</p>
         </ul>
+    </div>
 </template>
 
 <script>
@@ -63,5 +64,7 @@ export default {
     }
     select {
         margin-bottom: 1rem;
+        border-radius: 1%;
+        outline: none;
     }
 </style>

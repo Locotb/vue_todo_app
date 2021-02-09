@@ -36,7 +36,7 @@ export default {
 
 <style scoped>
     .container {
-        max-width: 70%;
+        max-width: 60%;
         margin: 0 auto;
         overflow: hidden;
     }

@@ -38,7 +38,7 @@ export default {
 
 <style scoped>
     li {
-        border: 1px solid black;
+        border: 1px solid white;
         padding: .5rem 2rem;
         margin-bottom: 1rem;
     }
@@ -53,17 +53,25 @@ export default {
         text-align: justify;
         word-break: break-all;
     }
-    .remove {
-        background: red;
-        border-radius: 50%;
-        color: white;
-        cursor: pointer;
-        margin-left: 1rem;
-    }
     .completed {
         text-decoration: line-through;
     }
+    .remove {
+        background: #E52B50;
+        color: white;
+        margin-left: 1rem;
+    }
+    .remove:hover {
+        background: #bd2b48;
+
+    }
     .done {
         margin-right: 1rem;
+        background-color: #8CFF7F;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .done:hover {
+        background-color: #76bd6e;
     }
 </style>

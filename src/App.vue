@@ -11,7 +11,24 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
     margin-top: 60px;
+}
+body {
+    background-color: #2c2f33;
+}
+h1, h2, p {
+    color: white;
+}
+a {
+    color: white;
+}
+a:hover {
+    color: #FF6700;
+    transition-duration: 250ms;
+}
+button {
+    cursor: pointer;
+    border: none; 
+    outline: none;
 }
 </style>
