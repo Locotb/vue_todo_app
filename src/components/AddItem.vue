@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     data() {
         return {
@@ -13,15 +15,16 @@ export default {
         }
     },
     methods: {
+        ...mapMutations(['addTodo']),
         onSubmit() {
             if ( this.title.trim() ) {
-                const newItem = {
+                const newTodo = {
+                    userId: 1,
                     id: Date.now(),
                     title: this.title,
                     completed: false
                 };
-
-                this.$emit('add-item', newItem);
+                this.addTodo(newTodo);
                 this.title = '';
             }
         }

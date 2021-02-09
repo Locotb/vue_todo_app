@@ -1,14 +1,16 @@
 <template>
     <li>
         <span>
-            <button class="done" @click="$emit('change-state', todo.id)">{{ changeButtonName }}</button>
+            <button class="done" @click="onChangeStatus(todo.id)">{{ changeButtonName }}</button>
             <p :class="{ completed: todo.completed }">{{ index + 1 }}. {{ todo.title }}</p>
-            <button class="remove" @click="$emit('remove-item', todo.id)">&times;</button>
+            <button class="remove" @click="onRemoveTodo(todo.id)">&times;</button>
         </span>
     </li>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
     props: {
         todo: {
@@ -20,6 +22,15 @@ export default {
     computed: {
         changeButtonName() {
             return this.todo.completed ? 'Cancel' : 'Done';
+        },
+    },
+    methods: {
+        ...mapMutations(['changeTodoStatus', 'removeTodo']),
+        onChangeStatus(todoId) {
+            this.changeTodoStatus(todoId)
+        },
+        onRemoveTodo(todoId) {
+            this.removeTodo(todoId);
         }
     }
 }

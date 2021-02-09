@@ -1,36 +1,56 @@
 <template>
         <ul>
+            <select v-model="filter">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="not-completed">Not completed</option>
+            </select>
+
             <TodoItem 
-                v-for="(todo, i) of todos"
+                v-for="(todo, i) of filterTodos"
                 :todo="todo"
                 :index="i"
                 :key="todo.id"
-                @remove-item="removeItem"
-                @change-state="changeState"
             />
+            <p v-if="!filterTodos.length && !$store.state.todoElement.loading">No todos!</p>
         </ul>
 </template>
 
 <script>
 import TodoItem from '@/components/TodoItem.vue';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    props: {
-        todos: {
-            type: Object,
-            required: true
+    data() {
+        return {
+            filter: 'all'
         }
     },
     components: {
         TodoItem
     },
-    methods: {
-        removeItem(id) {
-            this.$emit('remove-item', id);
-        },
-        changeState(id) {
-            this.$emit('change-state', id);
+    computed: {
+        ...mapGetters(['allTodos']),
+        filterTodos() {
+            let arrTodos = Array.from(this.allTodos);
+            switch (this.filter) {
+
+                case 'completed':
+                    arrTodos = arrTodos.filter(todo => todo.completed);
+                break;
+            
+                case 'not-completed':
+                    arrTodos = arrTodos.filter(todo => !todo.completed);
+                break;
+            }
+            return arrTodos;
         }
+    },
+    async mounted() {
+        this.fetchTodos();
+    },
+    methods: {
+        ...mapActions(['fetchTodos']),
     }
 }
 </script>
@@ -40,5 +60,8 @@ export default {
         list-style: none;
         margin: 0;
         padding: 0;
+    }
+    select {
+        margin-bottom: 1rem;
     }
 </style>
