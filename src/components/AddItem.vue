@@ -42,6 +42,9 @@ export default {
         margin-right: 1rem;
         width: 400px;
         outline: none;
+        border-radius: 10px;
+        border: none;
+        padding: 3px;
     }
     button:hover {
         background-color: #d4e1e1;      

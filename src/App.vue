@@ -5,7 +5,52 @@
     </div>
 </template>
 
+<script>
+import { mapActions } from 'vuex';
+
+export default {
+    async mounted() {
+        this.fetchTodos();
+    },
+    methods: {
+        ...mapActions(['fetchTodos']),
+    }
+}
+</script>
+
 <style>
+
+/* @media screen and (max-width: 480px) {
+    li {
+        padding: 15px !important;
+    }
+    .container {
+        min-width: 95%;
+    }
+} */
+
+
+@media screen and (max-width: 1200px) {
+    .container {
+        min-width: 60px;
+    }
+}
+@media screen and (max-width: 991px) {
+    .container {
+        min-width: 70%;
+    }
+}
+@media screen and (max-width: 767px) {
+    .container {
+        min-width: 85%;
+    }
+}
+@media screen and (max-width: 479px) {
+
+    .container {
+        min-width: 95%;
+    }
+}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -30,5 +75,6 @@ button {
     cursor: pointer;
     border: none; 
     outline: none;
+    border-radius: 10px;
 }
 </style>

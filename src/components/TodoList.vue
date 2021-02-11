@@ -47,9 +47,6 @@ export default {
             return arrTodos;
         }
     },
-    async mounted() {
-        this.fetchTodos();
-    },
     methods: {
         ...mapActions(['fetchTodos']),
     }
@@ -66,5 +63,6 @@ export default {
         margin-bottom: 1rem;
         border-radius: 1%;
         outline: none;
+        border-radius: 10px;
     }
 </style>

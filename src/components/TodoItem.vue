@@ -39,7 +39,8 @@ export default {
 <style scoped>
     li {
         border: 1px solid white;
-        padding: .5rem 2rem;
+        /* padding: .5rem 2rem; */
+        padding: 15px;
         margin-bottom: 1rem;
     }
     span {

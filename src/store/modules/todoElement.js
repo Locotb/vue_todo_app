@@ -8,9 +8,7 @@ export default {
     },
     mutations: {
         updateTodos(state, json) {
-            json.forEach(item => {
-                if (!state.todos.find(todo => todo.id === item.id)) state.todos.push(item);
-            });
+            state.todos = json;
             state.loading = false;
         },
         addTodo(state, newTodo) {
