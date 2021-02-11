@@ -19,22 +19,6 @@ export default {
 </script>
 
 <style>
-
-/* @media screen and (max-width: 480px) {
-    li {
-        padding: 15px !important;
-    }
-    .container {
-        min-width: 95%;
-    }
-} */
-
-
-@media screen and (max-width: 1200px) {
-    .container {
-        min-width: 60px;
-    }
-}
 @media screen and (max-width: 991px) {
     .container {
         min-width: 70%;

@@ -60,8 +60,7 @@ export default {
         padding: 0;
     }
     select {
-        margin-bottom: 1rem;
-        border-radius: 1%;
+        margin-bottom: 15px;
         outline: none;
         border-radius: 10px;
     }

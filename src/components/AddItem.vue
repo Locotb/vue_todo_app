@@ -36,10 +36,10 @@ export default {
     form {
         display: flex;
         justify-content: center;
-        margin: 1rem;
+        margin: 15px;
     }
     input {
-        margin-right: 1rem;
+        margin-right: 15px;
         width: 400px;
         outline: none;
         border-radius: 10px;

@@ -39,9 +39,8 @@ export default {
 <style scoped>
     li {
         border: 1px solid white;
-        /* padding: .5rem 2rem; */
         padding: 15px;
-        margin-bottom: 1rem;
+        margin-bottom: 15px;
     }
     span {
         display: flex;
@@ -60,14 +59,13 @@ export default {
     .remove {
         background: #E52B50;
         color: white;
-        margin-left: 1rem;
+        margin-left: 15px;
     }
     .remove:hover {
         background: #bd2b48;
-
     }
     .done {
-        margin-right: 1rem;
+        margin-right: 15px;
         background-color: #8CFF7F;
         padding-right: 10px;
         padding-left: 10px;
