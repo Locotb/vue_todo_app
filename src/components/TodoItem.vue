@@ -45,6 +45,7 @@ export default {
     span {
         display: flex;
         justify-content: space-between;
+        align-items: center;
     }
     p {
         margin: 0;
@@ -65,10 +66,9 @@ export default {
         background: #bd2b48;
     }
     .done {
-        margin-right: 15px;
         background-color: #8CFF7F;
-        padding-right: 10px;
-        padding-left: 10px;
+        margin-right: 15px;
+        padding: 0 10px;
     }
     .done:hover {
         background-color: #76bd6e;

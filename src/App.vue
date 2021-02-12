@@ -30,10 +30,27 @@ export default {
     }
 }
 @media screen and (max-width: 479px) {
-
     .container {
         min-width: 95%;
     }
+    span {
+        flex-flow: column wrap;
+    }
+    p {
+        order: 1;
+        text-align: center !important;
+    }
+    .done {
+        margin-right: 0 !important;
+        width: 100%;
+        padding: 5px 0 !important;
+    }
+    .remove {
+        margin: 14px 0 10px;
+        padding: 5px 0;
+        margin-left: 0 !important;
+        width: 100%;
+    } 
 }
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
